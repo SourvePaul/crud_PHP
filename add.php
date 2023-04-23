@@ -14,18 +14,30 @@
             <label>Class</label>
             <select name="class">
                 <option value="" selected disabled>Select Class</option>
-                <option value="1">BCA</option>
-                <option value="2">BSC</option>
-                <option value="3">B.TECH</option>
+                <?php 
+            
+                $conn1 = mysqli_connect("localhost", "root", "", "crud_php") or die("Connection failed for add!");
+
+                $sql1 = "SELECT * FROM studentclass";
+
+                $result1 = mysqli_query($conn1, $sql1) or die("connection failed from add query!");
+
+                while($row1 = mysqli_fetch_assoc($result1)) { 
+                ?>
+
+                <option value="<?php echo $row1['cid']; ?>"> <?php echo $row1['cname']; ?> </option>
+
+                <?php } ?>
             </select>
         </div>
         <div class="form-group">
             <label>Phone</label>
             <input type="text" name="sphone" />
         </div>
-        <input class="submit" type="submit" value="Save"  />
+        <input class="submit" type="submit" value="Save" />
     </form>
 </div>
 </div>
 </body>
+
 </html>
