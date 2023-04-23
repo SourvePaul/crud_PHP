@@ -4,7 +4,7 @@
     <form class="post-form" action="savedata.php" method="post">
         <div class="form-group">
             <label>Name</label>
-            <input type="text" name="sname" />
+            <input type="text" name="sname" placeholder="Enter Student FullName.." />
         </div>
         <div class="form-group">
             <label>Address</label>
