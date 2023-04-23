@@ -3,6 +3,15 @@ include 'header.php';
 ?>
 <div id="main-content">
     <h2>All Student Records</h2>
+
+    <?php 
+    $conn = mysqli_connect( "localhost", "root", "", "crud_php") or die("Connection failed!");
+
+    $sql = "SELECT * FROM student JOIN studentclass WHERE student.sclass = studentclass.cid";
+
+    $result = mysqli_query( $conn, $sql) or die("Error From Query!");
+    
+    ?>
     <table cellpadding="7px">
         <thead>
             <th>Id</th>
