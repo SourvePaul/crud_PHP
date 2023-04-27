@@ -2,8 +2,18 @@
 
 <div id="main-content">
     <h2>Update Record</h2>
-    <form class="post-form" action="updatedata.php" method="post">
 
+    <?php
+        $conn2 = mysqli_connect("localhost", "root", "", "crud_php") or die("Connection failed for edit!");
+        $stu_id = $_GET['id'];
+        $sql2 = "SELECT * FROM student WHERE sid = {$stu_id}";
+    
+        $result2 = mysqli_query($conn2, $sql2) or die("connection failed from edit query!"); 
+        
+        if(mysqli_num_rows($result2) > 0) { 
+            while($row = mysqli_fetch_assoc($result2)) { 
+    ?>
+    <form class="post-form" action="updatedata.php" method="post">
         <div class="form-group">
             <label>Name</label>
             <input type="hidden" name="sid" value="" />
@@ -28,6 +38,10 @@
         </div>
         <input class="submit" type="submit" value="Update" />
     </form>
+    <?php 
+            }
+        }
+    ?>
 </div>
 </div>
 </body>
