@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 $stu_id = $_POST['sid'];
 $stu_name = $_POST['sname'];
@@ -12,7 +13,11 @@ $sql3 = "UPDATE student SET sname = '{$stu_name}', saddress = '{$stu_address}', 
 
 $result3 = mysqli_query($conn3, $sql3) or die("Query Unsuccessful from update data!");
 
+header("Location: http://localhost/crud_PHP/index.php");
 
-$mysqli_close("$conn3");
+
+$_SESSION['success_msg'] = 'Your Update successfully Set!';
+
+mysqli_close($conn3);
 
 ?>

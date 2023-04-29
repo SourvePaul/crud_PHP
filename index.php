@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'header.php';
 ?>
 <div id="main-content">
@@ -53,6 +54,15 @@ include 'header.php';
         echo "<h2> No records found!..</h2>";
     }
     mysqli_close($conn);
+
+        if (isset($_SESSION['success_msg'])) {
+        $success_msg = $_SESSION['success_msg'];
+    // Display the success message to the user
+        echo $success_msg;
+    // Unset the session variable to prevent displaying the message again
+        unset($_SESSION['success_msg']);
+        }
+
     ?>
 </div>
 </div>
