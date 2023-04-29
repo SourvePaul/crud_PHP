@@ -16,7 +16,7 @@
         if(mysqli_num_rows($result2) > 0) { 
             while($row = mysqli_fetch_assoc($result2)) { 
     ?>
-    <form class="post-form" action="updatedata.php" method="post">
+    <form class="post-form" action="updateData.php" method="post">
         <div class="form-group">
             <label>Name</label>
             <input type="hidden" name="sid" value="<?php echo $row['sid']; ?>" />
@@ -37,9 +37,9 @@
             if(mysqli_num_rows($result21) > 0) { 
 
                 echo '<select name="sclass">
-                      <option value="" selected disabled>Select Class</option>';
+                      <option value="">Select Class</option>';
                 while($row21 = mysqli_fetch_assoc($result21)) {
-                    if($row['sclass'] = $row21['cid']) {
+                    if($row['sclass'] == $row21['cid']) {
                         $select = "selected"; 
                     }else{
                         $select = "";
@@ -47,7 +47,7 @@
 
                 echo "<option {$select} value='{$row21['cid']}'> {$row21['cname']} </option>";
                  }
-                echo "</select>";
+                echo '</select>';
             }
             ?>
 
