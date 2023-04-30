@@ -12,7 +12,7 @@
     <?php 
     if(isset($_POST['showbtn'])) {
         $conn4 = mysqli_connect("localhost", "root", "", "crud_php") or die("Connection failed for update file!");
-        
+      
         $id = $_POST['sid'];
     
         $sql4 = "SELECT * FROM student WHERE sid = {$id}";
